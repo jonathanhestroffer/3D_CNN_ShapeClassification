@@ -55,6 +55,8 @@ for ii,idx in enumerate(sample_idx):
 plt.show()
 ```
 
+<img src="random_samples.png" width=50% height=50%>
+
 ### Model Architecture
 
 ```python
