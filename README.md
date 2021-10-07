@@ -137,6 +137,6 @@ Epoch 40/40
 
  test accuracy =  0.9266666769981384
 ```
-<img src="training.png" width=50% height=50%>
+<img src="training.png" width=75% height=75%>
 
 ## Results and Analysis
