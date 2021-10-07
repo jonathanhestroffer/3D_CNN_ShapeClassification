@@ -123,5 +123,20 @@ history = model.fit(X_train, y_train, epochs=20,
 
 test_loss, test_acc = model.evaluate(X_test,  y_test, verbose=2)
 ```
+```
+Epoch 1/40
+19/19 [==============================] - 46s 2s/step - loss: 1.0806 - accuracy: 0.3904 - val_loss: 1.0321 - val_accuracy: 0.4250
+Epoch 2/40
+19/19 [==============================] - 46s 2s/step - loss: 0.9895 - accuracy: 0.4892 - val_loss: 0.9532 - val_accuracy: 0.4967
+.
+.
+.
+Epoch 40/40
+19/19 [==============================] - 45s 2s/step - loss: 0.0966 - accuracy: 0.9658 - val_loss: 0.2018 - val_accuracy: 0.9267
+19/19 - 1s - loss: 0.2018 - accuracy: 0.9267
+
+ test accuracy =  0.9266666769981384
+```
+<img src="training.png" width=50% height=50%>
 
 ## Results and Analysis
