@@ -37,25 +37,17 @@ labels = np.load('labels.npy')
 
 class_names = ['cube', 'cylinder', 'tetrahedron']
 
-# Plotting 4 random samples
+# Plotting a random sample
 sns.set_theme(style="whitegrid", font_scale=1, font='Times New Roman')
-sample_idx = np.random.randint(len(data), size=4)
-fig, ax = plt.subplots(2, 2, figsize=(8,8), subplot_kw=dict(projection="3d"))
-for ii,idx in enumerate(sample_idx):
-    i, j = divmod(ii,2)
-    voxels = np.squeeze(data[idx])
-    ax[i,j].voxels(voxels, facecolors='red', edgecolor='k')
-    ax[i,j].set_xlabel('X',labelpad=-10)
-    ax[i,j].set_xticklabels([])
-    ax[i,j].set_ylabel('Y',labelpad=-10)
-    ax[i,j].set_yticklabels([])
-    ax[i,j].set_zlabel('Z',labelpad=-10)
-    ax[i,j].set_zticklabels([])
-    ax[i,j].set_title('sample '+str(idx)+': '+class_names[labels[idx]])
+idx = np.random.randint(len(data))
+voxels = np.squeeze(data[idx])
+ax = plt.figure().add_subplot(projection='3d')
+ax.voxels(voxels, facecolors='red', edgecolor='k')
+ax.set_title('sample ' + str(idx) + ': ' + class_names[labels[idx]])
 plt.show()
 ```
 
-<img src="random_samples.png" width=50% height=50%>
+<img src="random_samples.png" width=100% height=100%>
 
 ### Model Architecture
 
