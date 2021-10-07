@@ -47,7 +47,7 @@ ax.set_title('sample ' + str(idx) + ': ' + class_names[labels[idx]])
 plt.show()
 ```
 
-<img src="random_samples.png" width=100% height=100%>
+<img src="random_samples.png" width=50% height=50%>
 
 ### Model Architecture
 
