@@ -28,10 +28,75 @@ As can be seen from the figure above illustrating the data generation workflow, 
 ### Model Architecture
 
 ```python
-if True:
-  return
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv3D, MaxPooling3D, BatchNormalization, Dropout, Flatten, Dense
+
+
+#  Create the model
+model = Sequential()
+model.add(Conv3D(16, (3, 3, 3), activation='relu', input_shape=(30, 30, 30, 1)))
+model.add(MaxPooling3D((2, 2, 2)))
+model.add(Conv3D(32, (3, 3, 3), activation='relu'))
+model.add(MaxPooling3D((2, 2, 2)))
+model.add(Conv3D(64, (3, 3, 3), activation='relu'))
+model.add(MaxPooling3D((2, 2, 2)))
+model.add(Flatten())
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(3))
+
+model.summary()
+```
+```
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv3d (Conv3D)              (None, 28, 28, 28, 8)     224       
+_________________________________________________________________
+max_pooling3d (MaxPooling3D) (None, 14, 14, 14, 8)     0         
+_________________________________________________________________
+conv3d_1 (Conv3D)            (None, 12, 12, 12, 16)    3472      
+_________________________________________________________________
+max_pooling3d_1 (MaxPooling3 (None, 6, 6, 6, 16)       0         
+_________________________________________________________________
+conv3d_2 (Conv3D)            (None, 4, 4, 4, 32)       13856     
+_________________________________________________________________
+max_pooling3d_2 (MaxPooling3 (None, 2, 2, 2, 32)       0         
+_________________________________________________________________
+flatten (Flatten)            (None, 256)               0         
+_________________________________________________________________
+dense (Dense)                (None, 32)                8224      
+_________________________________________________________________
+dropout (Dropout)            (None, 32)                0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 3)                 99        
+=================================================================
+Total params: 25,875
+Trainable params: 25,875
+Non-trainable params: 0
+_________________________________________________________________
 ```
 
 ### Training
+
+```python
+from tensorflow.keras.losses import SparseCategoricalCrossentropy
+from sklearn.model_selection import train_test_split
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss=SparseCategoricalCrossentropy(from_logits=True),
+              metrics=['accuracy'])
+
+history = model.fit(X_train, y_train, epochs=20,
+                    batch_size=10,
+                    validation_data=(X_test, y_test))
+
+test_loss, test_acc = model.evaluate(X_test,  y_test, verbose=2)
+```
 
 ## Results and Analysis
