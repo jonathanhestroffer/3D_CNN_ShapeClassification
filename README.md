@@ -16,6 +16,8 @@ The goal of the proposed model is to classify 3D image data according to the pri
 
 Three basic shapes are considered for classification and they include the cube, cylinder and regular tetrahedron. These shapes were generated with Blender in the form of triangle surface mesh (.stl) and can be seen in the figure above.
 
+<img src="data_generation_workflow.png" width=100% height=100%>
+
 ### Model
 
 ### Training
