@@ -25,6 +25,36 @@ For each of the three shapes, and for a pre-determined number of samples desired
 
 As can be seen from the figure above illustrating the data generation workflow, Step 2 represents a series of data augmentation procedures; without it, there would only be 1 possible sample per image. For this example, 1000 samples of data are generated for each shape.
 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Load data and labels
+data = np.load('data.npy')
+labels = np.load('labels.npy')
+
+class_names = ['cube', 'cylinder', 'tetrahedron']
+
+# Plotting 4 random samples
+sns.set_theme(style="whitegrid", font_scale=1, font='Times New Roman')
+sample_idx = np.random.randint(len(data), size=4)
+fig, ax = plt.subplots(2, 2, figsize=(8,8), subplot_kw=dict(projection="3d"))
+for ii,idx in enumerate(sample_idx):
+    i, j = divmod(ii,2)
+    voxels = np.squeeze(data[idx])
+    ax[i,j].voxels(voxels, facecolors='red', edgecolor='k')
+    ax[i,j].set_xlabel('X',labelpad=-10)
+    ax[i,j].set_xticklabels([])
+    ax[i,j].set_ylabel('Y',labelpad=-10)
+    ax[i,j].set_yticklabels([])
+    ax[i,j].set_zlabel('Z',labelpad=-10)
+    ax[i,j].set_zticklabels([])
+    ax[i,j].set_title('sample '+str(idx)+': '+class_names[labels[idx]])
+plt.show()
+```
+
 ### Model Architecture
 
 ```python
@@ -83,8 +113,6 @@ _________________________________________________________________
 ```python
 from tensorflow.keras.losses import SparseCategoricalCrossentropy
 from sklearn.model_selection import train_test_split
-import numpy as np
-import matplotlib.pyplot as plt
 
 
 # Compile the model
