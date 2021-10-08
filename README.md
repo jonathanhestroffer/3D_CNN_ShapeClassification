@@ -137,6 +137,7 @@ Epoch 20/20
 
  test accuracy =  0.9449999928474426
 ```
-<img src="training1.png" width=50% height=50%>
 
-## Results and Analysis
+### Performance
+
+<img src="training1.png" width=50% height=50%>
