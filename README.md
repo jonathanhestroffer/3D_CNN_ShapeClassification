@@ -52,7 +52,7 @@ plt.show()
 
 <img src="random_samples.png" width=50% height=50%>
 
-### Model Architecture
+### Model
 
 ```python
 from tensorflow.keras.models import Sequential
