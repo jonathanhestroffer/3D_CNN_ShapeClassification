@@ -49,10 +49,13 @@ ax.set_zlabel('Z')
 ax.set_title('sample ' + str(idx) + ': ' + class_names[labels[idx]])
 plt.show()
 ```
-
-<img src="random_samples.png" width=50% height=50%>
+<p align="center">
+  <img src="random_samples.png" width=50% height=50%>  
+</p>
 
 ### Model
+
+The model architecture chosen for this example is arbitrary and has undergone no hyperparameter optimization.
 
 ```python
 from tensorflow.keras.models import Sequential
@@ -140,4 +143,8 @@ Epoch 20/20
 
 ### Performance
 
-<img src="training1.png" width="425"/> <img src="confusion.png" width="425"/> 
+<p align="center">
+  <img src="training1.png" width="425"/> <img src="confusion.png" width="425"/> 
+</p>
+
+We see that our simple model performs very well for the classification task. There are many opportunities to further improve its performace through means of hyperparameter optimization and possibly increasing the voxel-grid resolution to better capture the rounded surfaces of the cylinder shape.
