@@ -118,24 +118,24 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 history = model.fit(X_train, y_train, epochs=20,
-                    batch_size=10,
+                    batch_size=64,
                     validation_data=(X_test, y_test))
 
 test_loss, test_acc = model.evaluate(X_test,  y_test, verbose=2)
 ```
 ```
-Epoch 1/40
-19/19 [==============================] - 46s 2s/step - loss: 1.0806 - accuracy: 0.3904 - val_loss: 1.0321 - val_accuracy: 0.4250
-Epoch 2/40
-19/19 [==============================] - 46s 2s/step - loss: 0.9895 - accuracy: 0.4892 - val_loss: 0.9532 - val_accuracy: 0.4967
+Epoch 1/20
+38/38 [==============================] - 91s 2s/step - loss: 1.0130 - accuracy: 0.4446 - val_loss: 0.9589 - val_accuracy: 0.4867
+Epoch 2/20
+38/38 [==============================] - 91s 2s/step - loss: 0.9300 - accuracy: 0.5013 - val_loss: 0.9084 - val_accuracy: 0.4933
 .
 .
 .
-Epoch 40/40
-19/19 [==============================] - 45s 2s/step - loss: 0.0966 - accuracy: 0.9658 - val_loss: 0.2018 - val_accuracy: 0.9267
-19/19 - 1s - loss: 0.2018 - accuracy: 0.9267
+Epoch 20/20
+38/38 [==============================] - 92s 2s/step - loss: 0.0674 - accuracy: 0.9767 - val_loss: 0.1718 - val_accuracy: 0.9450
+19/19 - 2s - loss: 0.1718 - accuracy: 0.9450
 
- test accuracy =  0.9266666769981384
+ test accuracy =  0.9449999928474426
 ```
 <img src="training.png" width=50% height=50%>
 
