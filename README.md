@@ -140,4 +140,4 @@ Epoch 20/20
 
 ### Performance
 
-<img src="training1.png" width=50% height=50%>
+<img src="training1.png" width=50% height=50%> <img src="confusion.png" width=50% height=50%>
