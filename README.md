@@ -2,9 +2,7 @@
 
 <img src="title.png" width=100% height=100%>
 
-INTRO HERE
-
-This repository provides a short tutorial on basic shape classification using three-dimensional (3D) convolutional neural networks (CNNs). All data for training and testing the model in this example has been provided.
+With increasing availability of high performance graphics processing units (GPUs) and advancements in neural network architecture, there has been a significant push toward three-dimensional (3D) deep learning applications using volumetric image data. This repository provides a short tutorial on basic shape classification using 3D CNNs. All data for training and testing the model in this example has been provided.
 
 ## Methodology
 
@@ -144,7 +142,7 @@ Epoch 20/20
 ### Performance
 
 <p align="center">
-  <img src="training1.png" width="425"/>
+  <img src="training1.png" width="425"/> <img src="confusion.png" width="425"/> 
 </p>
 
-We see that our simple model performs very well for the classification task. There are opportunities for further model improvement through means of hyperparameter optimization and possibly increasing the voxel-grid resolution to better capture the rounded surfaces of the cylinder shape and better differentiate from cubes.
+We see that our simple model performs very well for the classification task, with a test accuracy of 95%, with the bulk of ourThere are opportunities for further model improvement through means of hyperparameter optimization and possibly increasing the voxel-grid resolution to better capture the rounded surfaces of the cylinder shape and better differentiate from cubes.
