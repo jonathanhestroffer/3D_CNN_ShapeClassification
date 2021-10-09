@@ -144,7 +144,7 @@ Epoch 20/20
 ### Performance
 
 <p align="center">
-  <img src="training1.png" width="425"/> <img src="confusion.png" width="425"/> 
+  <img src="training1.png" width="425"/>
 </p>
 
 We see that our simple model performs very well for the classification task. There are opportunities for further model improvement through means of hyperparameter optimization and possibly increasing the voxel-grid resolution to better capture the rounded surfaces of the cylinder shape and better differentiate from cubes.
