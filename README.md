@@ -21,7 +21,7 @@ For each of the three shapes, and for a pre-determined number of samples desired
 
 <img src="data_generation_workflow.png" width=100% height=100%>
 
-As can be seen from the figure above illustrating the data generation workflow, Step 2 represents a series of data augmentation procedures; without it, there would only be one possible sample per image. For this example, 1000 samples of data are generated for each shape.
+As can be seen from the figure above illustrating the data generation workflow, Step 2 represents a series of data augmentation procedures; without it, there would only be one possible sample per image. For this example, 3000 samples of data are generated, 1000 for each of the shapes. Note a sample of data is 4D (x, y, z, c), c being the number of channels, in this case c=1.
 
 ```python
 import numpy as np
