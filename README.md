@@ -2,7 +2,7 @@
 
 <img src="title.png" width=100% height=100%>
 
-With increasing availability of high performance graphics processing units (GPUs) and advancements in neural network architecture, there has been a significant push toward three-dimensional (3D) deep learning applications using volumetric image data. This repository provides a short tutorial on basic shape classification using 3D CNNs. All data for training and testing the model in this example has been provided.
+With increasing availability of high performance graphics processing units (GPUs) and advancements in neural network architecture, there has been a significant push toward three-dimensional (3D) deep learning applications using volumetric image data. This repository provides a short tutorial on basic shape classification using 3D convolutional neural networks (CNNs). All data for training and testing in this example has been provided.
 
 ## Methodology
 
@@ -10,18 +10,18 @@ With increasing availability of high performance graphics processing units (GPUs
 
 <img src="shapes.png" width=100% height=100%>
 
-The goal of the proposed model is to classify 3D image data according to the primitive shapes they represent. Three basic shapes are considered for classification and they include the *cube*, *cylinder* and *regular tetrahedron*. These shapes were generated with Blender in the form of triangle surface mesh (.stl) and can be seen in the figure above.
+The goal of the proposed model is to classify 3D image data according to the primitive shapes they represent. Three basic shapes are considered for classification and they include the *cube*, *cylinder* and *regular tetrahedron*. These shapes were generated with [Blender](https://www.blender.org/) in the form of triangle surface mesh (.stl) and can be seen in the figure above.
 
 For each of the three shapes, and for a pre-determined number of samples desired for each shape, the process of generating a sample image is as follows:
 
 1. Place the Blender generated primitive shape at the center of a bounding box.
 2. Sequentially apply a random 3D rotation, scale, and displacement to the shape. (Augmentation)
-3. Define a voxel-grid encompassing both the permutated shape and bounding box.
+3. Define a voxel-grid encompassing both the permutated shape and bounding box. (30x30x30 grid for this example)
 4. Segment the voxels according to their location with respect to the permutated shape. Voxels whose centroids are located within the permutated shape are given a label of "1", if not a label of "0" is assigned.
 
 <img src="data_generation_workflow.png" width=100% height=100%>
 
-As can be seen from the figure above illustrating the data generation workflow, Step 2 represents a series of data augmentation procedures; without it, there would only be 1 possible sample per image. For this example, 1000 samples of data are generated for each shape.
+As can be seen from the figure above illustrating the data generation workflow, Step 2 represents a series of data augmentation procedures; without it, there would only be one possible sample per image. For this example, 1000 samples of data are generated for each shape.
 
 ```python
 import numpy as np
@@ -145,4 +145,4 @@ Epoch 20/20
   <img src="training_accuracy.png" width="425"/> <img src="confusion_matrix.png" width="425"/> 
 </p>
 
-We see that our simple model performs very well for the classification task, with a test accuracy of 95%, with the bulk of ourThere are opportunities for further model improvement through means of hyperparameter optimization and possibly increasing the voxel-grid resolution to better capture the rounded surfaces of the cylinder shape and better differentiate from cubes.
+We see that our simple model performs very well for the classification task, with a test accuracy of 95%. We also find that the bulk of our prediction errors are due to mislabelling cubes as cylinders. There are opportunities for further model improvement through means of hyperparameter optimization and possibly increasing the voxel-grid resolution of the data to better capture the defining rounded surfaces of the cylinder shape, but at significant computational cost.
